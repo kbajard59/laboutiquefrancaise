@@ -4,14 +4,32 @@
 
 {% block content %}
     <h1>Mon compte</h1>
+    {% if is_granted('ROLE_ADMIN') %}
+        <small><a href="{{ path('admin') }}"> Espace Admin - Accès backoffice</a></small><br/><br/>
+    {% endif %}
     Bienvenue {{ app.user.firstname }} dans votre compte.<br/>
     C'est dans cet espace que vous allez pouvoir gérer vos informations personnelles.
     <hr>
-    {% if is_granted('ROLE_ADMIN') %}
-    - <a href="{{ path('admin') }}"> Espace Admin - Accès backoffice</a><br/>
-    {% endif %}
-    - <a href="{{ path('account_password') }}"> Modifier mon mot de passe</a><br/>
-    - <a href="{{ path('account_address') }}"> Gérer mes adresses</a><br/>
-    - <a href="{{ path('account_order') }}"> Mes commandes</a>
+<div class="row">
+    <div class="col-md-4">
+        <div class="account-item text-center">
+            <img src="{{ asset('assets/img/padlock.png') }}" alt="Cadenas"><br/>
+            <a href="{{ path('account_password') }}"> Modifier mon mot de passe</a>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="account-item text-center">
+            <img src="{{ asset('assets/img/address.png') }}" alt="Adresses"><br/>
+            <a href="{{ path('account_address') }}"> Gérer mes adresses</a>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="account-item text-center">
+            <img src="{{ asset('assets/img/shopping-bag.png') }}" alt="Cadenas"><br/>
+            <a href="{{ path('account_order') }}"> Mes commandes</a>
+        </div>
+    </div>
+
+</div>
     <hr>
 {% endblock %}
