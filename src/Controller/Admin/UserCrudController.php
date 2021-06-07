@@ -15,7 +15,7 @@ class UserCrudController extends AbstractCrudController
     }
 
 
-    public function configureFields(string $pageName): iterable
+/*    public function configureFields(string $pageName): iterable
     {
         return [
             TextField::new('email'),
@@ -23,6 +23,6 @@ class UserCrudController extends AbstractCrudController
             TextField::new('lastname'),
             ArrayField::new('roles'),
         ];
-    }
+    }*/
 
 }
