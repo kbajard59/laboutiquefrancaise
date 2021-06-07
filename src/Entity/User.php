@@ -56,6 +56,7 @@ class User implements UserInterface
      */
     private $orders;
 
+
     public function __construct()
     {
         $this->addresses = new ArrayCollection();
@@ -230,4 +231,5 @@ class User implements UserInterface
 
         return $this;
     }
+
 }
